@@ -11,13 +11,17 @@ class {
 
     onCreate () {
 
-        this.state = this.calculateState(1000);
+        this.state = this.calculateState(Cookie.get('income') || 1000);
 
     }
 
     onIncomeChange (evt, el) {
 
-        this.state = this.calculateState(evt.target.value);
+        var income = evt.target.value;
+
+        Cookie.set('income', income, { expires: 365 });
+
+        this.state = this.calculateState(income);
 
     }
 

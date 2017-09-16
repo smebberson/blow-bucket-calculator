@@ -845,7 +845,7 @@ var marko_template = module.exports = __webpack_require__(29).t(),
     marko_helpers = __webpack_require__(53),
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("19fd44"),
+    marko_const_nextId = marko_const("4fd539"),
     marko_node0 = marko_createElement("DIV", {
         "class": "col-xs-10 col-sm-6"
       }, 2, 0, {
@@ -879,55 +879,94 @@ var marko_template = module.exports = __webpack_require__(29).t(),
     marko_attrs4 = {
         "class": "col"
       },
-    marko_node3 = marko_createElement("H2", null, 1, 0, {
-        c: marko_const_nextId()
-      })
-      .t("Blow bucket"),
     marko_attrs5 = {
         "class": "table"
       },
-    marko_node4 = marko_createElement("THEAD", null, 1, 0, {
+    marko_node3 = marko_createElement("THEAD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .e("TR", null, 4)
         .e("TH", {
-            scope: "col"
+            scope: "col",
+            "class": "text-left"
           }, 1)
           .t("Category")
         .e("TH", {
-            scope: "col"
+            scope: "col",
+            "class": "text-center"
           }, 1)
           .t("Percentage")
         .e("TH", {
-            scope: "col"
+            scope: "col",
+            "class": "text-right"
           }, 1)
           .t("Weekly Allocation")
         .e("TH", {
-            scope: "col"
+            scope: "col",
+            "class": "text-right"
           }, 1)
           .t("Yearly Allocation"),
-    marko_node5 = marko_createElement("TD", null, 1, 0, {
+    marko_node4 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Living"),
-    marko_node6 = marko_createElement("TD", null, 1, 0, {
+    marko_attrs6 = {
+        "class": "text-center"
+      },
+    marko_attrs7 = {
+        "class": "text-right"
+      },
+    marko_attrs8 = {
+        "class": "text-right"
+      },
+    marko_node5 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Splurge"),
-    marko_node7 = marko_createElement("TD", null, 1, 0, {
+    marko_attrs9 = {
+        "class": "text-center"
+      },
+    marko_attrs10 = {
+        "class": "text-right"
+      },
+    marko_attrs11 = {
+        "class": "text-right"
+      },
+    marko_node6 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Smile"),
-    marko_node8 = marko_createElement("TD", null, 1, 0, {
+    marko_attrs12 = {
+        "class": "text-center"
+      },
+    marko_attrs13 = {
+        "class": "text-right"
+      },
+    marko_attrs14 = {
+        "class": "text-right"
+      },
+    marko_node7 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Fire extinguisher"),
-    marko_node9 = marko_createElement("TD", {
+    marko_attrs15 = {
+        "class": "text-center"
+      },
+    marko_attrs16 = {
+        "class": "text-right"
+      },
+    marko_attrs17 = {
+        "class": "text-right"
+      },
+    marko_node8 = marko_createElement("TD", {
         colspan: "3"
       }, 1, 0, {
         c: marko_const_nextId()
       })
-      .t(" ");
+      .t(" "),
+    marko_attrs18 = {
+        "class": "text-right"
+      };
 
 var currency = function (amount) {
 
@@ -961,51 +1000,50 @@ function render(input, out, __component, component, state) {
             })
           .n(marko_node2)
     .e("DIV", marko_attrs1, 1)
-      .e("DIV", marko_attrs4, 2)
-        .n(marko_node3)
+      .e("DIV", marko_attrs4, 1)
         .e("TABLE", marko_attrs5, 3)
-          .n(marko_node4)
+          .n(marko_node3)
           .e("TBODY", null, 4)
             .e("TR", null, 4)
-              .n(marko_node5)
-              .e("TD", null, 2)
+              .n(marko_node4)
+              .e("TD", marko_attrs6, 2)
                 .t(state.livingPercent)
                 .t("%")
-              .e("TD", null, 1)
+              .e("TD", marko_attrs7, 1)
                 .t(currency(state.living))
-              .e("TD", null, 1)
+              .e("TD", marko_attrs8, 1)
                 .t(currency(state.living * 52))
             .e("TR", null, 4)
-              .n(marko_node6)
-              .e("TD", null, 2)
+              .n(marko_node5)
+              .e("TD", marko_attrs9, 2)
                 .t(state.splurgePercent)
                 .t("%")
-              .e("TD", null, 1)
+              .e("TD", marko_attrs10, 1)
                 .t(currency(state.splurge))
-              .e("TD", null, 1)
+              .e("TD", marko_attrs11, 1)
                 .t(currency(state.splurge * 52))
             .e("TR", null, 4)
-              .n(marko_node7)
-              .e("TD", null, 2)
+              .n(marko_node6)
+              .e("TD", marko_attrs12, 2)
                 .t(state.smilePercent)
                 .t("%")
-              .e("TD", null, 1)
+              .e("TD", marko_attrs13, 1)
                 .t(currency(state.smile))
-              .e("TD", null, 1)
+              .e("TD", marko_attrs14, 1)
                 .t(currency(state.smile * 52))
             .e("TR", null, 4)
-              .n(marko_node8)
-              .e("TD", null, 2)
+              .n(marko_node7)
+              .e("TD", marko_attrs15, 2)
                 .t(state.fireExtinguisherPercent)
                 .t("%")
-              .e("TD", null, 1)
+              .e("TD", marko_attrs16, 1)
                 .t(currency(state.fireExtinguisher))
-              .e("TD", null, 1)
+              .e("TD", marko_attrs17, 1)
                 .t(currency(state.fireExtinguisher * 52))
           .e("TFOOT", null, 1)
             .e("TR", null, 2)
-              .n(marko_node9)
-              .e("TD", null, 1)
+              .n(marko_node8)
+              .e("TD", marko_attrs18, 1)
                 .t(currency(state.income * 52));
 }
 
@@ -2162,9 +2200,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_bootstrap_dist_js_bootstrap_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_bootstrap_dist_js_bootstrap_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_daemonite_material_js_material_js__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_daemonite_material_js_material_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_daemonite_material_js_material_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scss_index_scss__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scss_index_scss__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scss_index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__scss_index_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_calculator_js__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_calculator_js__ = __webpack_require__(27);
 
 // Node modules.
 
@@ -7040,185 +7078,10 @@ module.exports = g;
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * JavaScript Cookie v2.1.4
- * https://github.com/js-cookie/js-cookie
- *
- * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
- * Released under the MIT license
- */
-;(function (factory) {
-	var registeredInModuleLoader = false;
-	if (true) {
-		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		registeredInModuleLoader = true;
-	}
-	if (true) {
-		module.exports = factory();
-		registeredInModuleLoader = true;
-	}
-	if (!registeredInModuleLoader) {
-		var OldCookies = window.Cookies;
-		var api = window.Cookies = factory();
-		api.noConflict = function () {
-			window.Cookies = OldCookies;
-			return api;
-		};
-	}
-}(function () {
-	function extend () {
-		var i = 0;
-		var result = {};
-		for (; i < arguments.length; i++) {
-			var attributes = arguments[ i ];
-			for (var key in attributes) {
-				result[key] = attributes[key];
-			}
-		}
-		return result;
-	}
-
-	function init (converter) {
-		function api (key, value, attributes) {
-			var result;
-			if (typeof document === 'undefined') {
-				return;
-			}
-
-			// Write
-
-			if (arguments.length > 1) {
-				attributes = extend({
-					path: '/'
-				}, api.defaults, attributes);
-
-				if (typeof attributes.expires === 'number') {
-					var expires = new Date();
-					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
-					attributes.expires = expires;
-				}
-
-				// We're using "expires" because "max-age" is not supported by IE
-				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
-
-				try {
-					result = JSON.stringify(value);
-					if (/^[\{\[]/.test(result)) {
-						value = result;
-					}
-				} catch (e) {}
-
-				if (!converter.write) {
-					value = encodeURIComponent(String(value))
-						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
-				} else {
-					value = converter.write(value, key);
-				}
-
-				key = encodeURIComponent(String(key));
-				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
-				key = key.replace(/[\(\)]/g, escape);
-
-				var stringifiedAttributes = '';
-
-				for (var attributeName in attributes) {
-					if (!attributes[attributeName]) {
-						continue;
-					}
-					stringifiedAttributes += '; ' + attributeName;
-					if (attributes[attributeName] === true) {
-						continue;
-					}
-					stringifiedAttributes += '=' + attributes[attributeName];
-				}
-				return (document.cookie = key + '=' + value + stringifiedAttributes);
-			}
-
-			// Read
-
-			if (!key) {
-				result = {};
-			}
-
-			// To prevent the for loop in the first place assign an empty array
-			// in case there are no cookies at all. Also prevents odd result when
-			// calling "get()"
-			var cookies = document.cookie ? document.cookie.split('; ') : [];
-			var rdecode = /(%[0-9A-Z]{2})+/g;
-			var i = 0;
-
-			for (; i < cookies.length; i++) {
-				var parts = cookies[i].split('=');
-				var cookie = parts.slice(1).join('=');
-
-				if (cookie.charAt(0) === '"') {
-					cookie = cookie.slice(1, -1);
-				}
-
-				try {
-					var name = parts[0].replace(rdecode, decodeURIComponent);
-					cookie = converter.read ?
-						converter.read(cookie, name) : converter(cookie, name) ||
-						cookie.replace(rdecode, decodeURIComponent);
-
-					if (this.json) {
-						try {
-							cookie = JSON.parse(cookie);
-						} catch (e) {}
-					}
-
-					if (key === name) {
-						result = cookie;
-						break;
-					}
-
-					if (!key) {
-						result[name] = cookie;
-					}
-				} catch (e) {}
-			}
-
-			return result;
-		}
-
-		api.set = api;
-		api.get = function (key) {
-			return api.call(api, key);
-		};
-		api.getJSON = function () {
-			return api.apply({
-				json: true
-			}, [].slice.call(arguments));
-		};
-		api.defaults = {};
-
-		api.remove = function (key, attributes) {
-			api(key, '', extend(attributes, {
-				expires: -1
-			}));
-		};
-
-		api.withConverter = init;
-
-		return api;
-	}
-
-	return init(function () {});
-}));
-
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(24);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -7226,7 +7089,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(26)(content, options);
+var update = __webpack_require__(25)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -7243,10 +7106,10 @@ if(false) {
 }
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(25)(undefined);
+exports = module.exports = __webpack_require__(24)(undefined);
 // imports
 
 
@@ -7257,7 +7120,7 @@ exports.push([module.i, "*,\n*::after,\n*::before {\n  box-sizing: inherit;\n}\n
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /*
@@ -7339,7 +7202,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -7385,7 +7248,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(27);
+var	fixUrls = __webpack_require__(26);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -7698,7 +7561,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports) {
 
 
@@ -7793,11 +7656,11 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_js_cookie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_js_cookie__);
 
 
@@ -7809,6 +7672,181 @@ window.Cookie = __WEBPACK_IMPORTED_MODULE_0_js_cookie___default.a;
 var calculator = __webpack_require__(8);
 
 calculator.renderSync().appendTo(document.body);
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * JavaScript Cookie v2.1.4
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader = false;
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		registeredInModuleLoader = true;
+	}
+	if (true) {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				var stringifiedAttributes = '';
+
+				for (var attributeName in attributes) {
+					if (!attributes[attributeName]) {
+						continue;
+					}
+					stringifiedAttributes += '; ' + attributeName;
+					if (attributes[attributeName] === true) {
+						continue;
+					}
+					stringifiedAttributes += '=' + attributes[attributeName];
+				}
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
 
 
 /***/ }),

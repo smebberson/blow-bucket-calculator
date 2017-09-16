@@ -5,6 +5,14 @@
 
 }
 
+.form-control:hover, .form-control:focus {
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #4278B8;
+}
+
 .form-control#income {
     text-align: right;
 }

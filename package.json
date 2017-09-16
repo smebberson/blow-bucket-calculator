@@ -1,0 +1,21 @@
+{
+  "name": "blow-bucket-calculator",
+  "version": "1.0.0",
+  "description": "A simple, easy-to-use calculator to give insight into how to structure your blow bucket.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smebberson/blow-bucket-calculator.git"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/static"
+  },
+  "author": "Scott Mebberson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smebberson/blow-bucket-calculator/issues"
+  },
+  "homepage": "https://github.com/smebberson/blow-bucket-calculator#readme",
+  "devDependencies": {
+    "node-static": "0.7.10"
+  }
+}

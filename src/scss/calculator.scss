@@ -29,3 +29,7 @@
 .income-help {
     letter-spacing: 0;
 }
+
+.table tbody td, .table tfoot td {
+    font-size: $font-size-base;
+}

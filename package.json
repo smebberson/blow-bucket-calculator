@@ -7,7 +7,9 @@
     "url": "git+https://github.com/smebberson/blow-bucket-calculator.git"
   },
   "scripts": {
-    "start": "./node_modules/.bin/static"
+    "build": "webpack",
+    "start": "./node_modules/.bin/static",
+    "watch": "webpack --watch"
   },
   "author": "Scott Mebberson",
   "license": "ISC",
@@ -16,6 +18,14 @@
   },
   "homepage": "https://github.com/smebberson/blow-bucket-calculator#readme",
   "devDependencies": {
-    "node-static": "0.7.10"
+    "@idearium/eslint-config": "latest",
+    "bootstrap": "4.0.0-beta",
+    "css-loader": "0.28.7",
+    "daemonite-material": "4.0.0-beta",
+    "eslint": "4.6.1",
+    "jquery": "3.2.1",
+    "node-static": "0.7.10",
+    "style-loader": "0.18.2",
+    "webpack": "3.6.0"
   }
 }

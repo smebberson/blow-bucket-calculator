@@ -1,1 +1,46 @@
-<p>Hello ${input.name}.</p>
+class {
+
+    onCreate () {
+        this.state = {
+            income: 1000,
+        };
+    }
+
+    increment () {
+        this.state.count++;
+    }
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">Income</div>
+        <div class="col">
+
+            <div class="form-group">
+                <label for="income">Income</label>
+                <input type="number" class="form-control" id="income" placeholder="1000">
+                <small id="incomeHelp" class="form-text text-muted">Enter your weekly income, after tax</small>
+            </div>
+
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col"><h2>Blow bucket</h2></div>
+    </div>
+
+    <div class="row">
+        <div class="col">Living</div>
+        <div class="col">60%</div>
+        <div class="col">${state.income}</div>
+    </div>
+
+</div>
+
+<p>The current count is ${state.count}.</p>
+<button on-click('increment')>Increment</button>

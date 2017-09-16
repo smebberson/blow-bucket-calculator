@@ -1274,33 +1274,14 @@ var marko_template = module.exports = __webpack_require__(30).t(),
     marko_attrs0 = {
         "class": "row calc-income"
       },
+    marko_attrs1 = {
+        "class": "row calc-blow-bucket"
+      },
     marko_helpers = __webpack_require__(54),
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("138865"),
+    marko_const_nextId = marko_const("b7bc33"),
     marko_node0 = marko_createElement("DIV", {
-        "class": "row calc-blow-bucket"
-      }, 1, 0, {
-        c: marko_const_nextId()
-      })
-      .e("DIV", {
-          "class": "col"
-        }, 1)
-        .e("H2", null, 1)
-          .t("Blow bucket"),
-    marko_attrs1 = {
-        "class": "row calc-result"
-      },
-    marko_attrs2 = {
-        "class": "row calc-result"
-      },
-    marko_attrs3 = {
-        "class": "row calc-result"
-      },
-    marko_attrs4 = {
-        "class": "row calc-result"
-      },
-    marko_node1 = marko_createElement("DIV", {
         "class": "col-xs-10 col-sm-6"
       }, 2, 0, {
         c: marko_const_nextId()
@@ -1312,72 +1293,70 @@ var marko_template = module.exports = __webpack_require__(30).t(),
           "for": "income"
         }, 1)
         .t("Enter your weekly income, after tax."),
-    marko_attrs5 = {
+    marko_attrs2 = {
         "class": "col-xs-2 col-sm-6"
       },
-    marko_attrs6 = {
+    marko_attrs3 = {
         "class": "input-group input-group-lg"
       },
-    marko_node2 = marko_createElement("SPAN", {
+    marko_node1 = marko_createElement("SPAN", {
         "class": "input-group-addon dollars"
       }, 1, 0, {
         c: marko_const_nextId()
       })
       .t("$"),
-    marko_node3 = marko_createElement("SPAN", {
+    marko_node2 = marko_createElement("SPAN", {
         "class": "input-group-addon cents"
       }, 1, 0, {
         c: marko_const_nextId()
       })
       .t(".00"),
-    marko_node4 = marko_createElement("DIV", {
+    marko_attrs4 = {
         "class": "col"
-      }, 1, 0, {
+      },
+    marko_node3 = marko_createElement("H2", null, 1, 0, {
+        c: marko_const_nextId()
+      })
+      .t("Blow bucket"),
+    marko_attrs5 = {
+        "class": "table"
+      },
+    marko_node4 = marko_createElement("THEAD", null, 1, 0, {
+        c: marko_const_nextId()
+      })
+      .e("TR", null, 4)
+        .e("TH", {
+            scope: "col"
+          }, 1)
+          .t("Category")
+        .e("TH", {
+            scope: "col"
+          }, 1)
+          .t("Percentage")
+        .e("TH", {
+            scope: "col"
+          }, 1)
+          .t("Weekly Allocation")
+        .e("TH", {
+            scope: "col"
+          }, 1)
+          .t("Yearly Allocation"),
+    marko_node5 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Living"),
-    marko_attrs7 = {
-        "class": "col"
-      },
-    marko_attrs8 = {
-        "class": "col"
-      },
-    marko_node5 = marko_createElement("DIV", {
-        "class": "col"
-      }, 1, 0, {
+    marko_node6 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Splurge"),
-    marko_attrs9 = {
-        "class": "col"
-      },
-    marko_attrs10 = {
-        "class": "col"
-      },
-    marko_node6 = marko_createElement("DIV", {
-        "class": "col"
-      }, 1, 0, {
+    marko_node7 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
       .t("Smile"),
-    marko_attrs11 = {
-        "class": "col"
-      },
-    marko_attrs12 = {
-        "class": "col"
-      },
-    marko_node7 = marko_createElement("DIV", {
-        "class": "col"
-      }, 1, 0, {
+    marko_node8 = marko_createElement("TD", null, 1, 0, {
         c: marko_const_nextId()
       })
-      .t("Fire extinguisher"),
-    marko_attrs13 = {
-        "class": "col"
-      },
-    marko_attrs14 = {
-        "class": "col"
-      };
+      .t("Fire extinguisher");
 
 var currency = function (amount) {
 
@@ -1394,12 +1373,12 @@ function render(input, out, __component, component, state) {
   out.e("DIV", {
       "class": "container",
       id: __component.id
-    }, 6, 4)
+    }, 2, 4)
     .e("DIV", marko_attrs0, 2)
-      .n(marko_node1)
-      .e("DIV", marko_attrs5, 1)
-        .e("DIV", marko_attrs6, 3)
-          .n(marko_node2)
+      .n(marko_node0)
+      .e("DIV", marko_attrs2, 1)
+        .e("DIV", marko_attrs3, 3)
+          .n(marko_node1)
           .e("INPUT", {
               type: "number",
               "class": "form-control",
@@ -1409,36 +1388,49 @@ function render(input, out, __component, component, state) {
             }, 0, 0, {
               onchange: __component.d("onIncomeChange")
             })
-          .n(marko_node3)
-    .n(marko_node0)
-    .e("DIV", marko_attrs1, 3)
-      .n(marko_node4)
-      .e("DIV", marko_attrs7, 2)
-        .t(state.livingPercent)
-        .t("%")
-      .e("DIV", marko_attrs8, 1)
-        .t(currency(state.living))
-    .e("DIV", marko_attrs2, 3)
-      .n(marko_node5)
-      .e("DIV", marko_attrs9, 2)
-        .t(state.splurgePercent)
-        .t("%")
-      .e("DIV", marko_attrs10, 1)
-        .t(currency(state.splurge))
-    .e("DIV", marko_attrs3, 3)
-      .n(marko_node6)
-      .e("DIV", marko_attrs11, 2)
-        .t(state.smilePercent)
-        .t("%")
-      .e("DIV", marko_attrs12, 1)
-        .t(currency(state.smile))
-    .e("DIV", marko_attrs4, 3)
-      .n(marko_node7)
-      .e("DIV", marko_attrs13, 2)
-        .t(state.fireExtinguisherPercent)
-        .t("%")
-      .e("DIV", marko_attrs14, 1)
-        .t(currency(state.fireExtinguisher));
+          .n(marko_node2)
+    .e("DIV", marko_attrs1, 1)
+      .e("DIV", marko_attrs4, 2)
+        .n(marko_node3)
+        .e("TABLE", marko_attrs5, 2)
+          .n(marko_node4)
+          .e("TBODY", null, 4)
+            .e("TR", null, 4)
+              .n(marko_node5)
+              .e("TD", null, 2)
+                .t(state.livingPercent)
+                .t("%")
+              .e("TD", null, 1)
+                .t(currency(state.living))
+              .e("TD", null, 1)
+                .t(currency(state.living * 52))
+            .e("TR", null, 4)
+              .n(marko_node6)
+              .e("TD", null, 2)
+                .t(state.splurgePercent)
+                .t("%")
+              .e("TD", null, 1)
+                .t(currency(state.splurge))
+              .e("TD", null, 1)
+                .t(currency(state.splurge * 52))
+            .e("TR", null, 4)
+              .n(marko_node7)
+              .e("TD", null, 2)
+                .t(state.smilePercent)
+                .t("%")
+              .e("TD", null, 1)
+                .t(currency(state.smile))
+              .e("TD", null, 1)
+                .t(currency(state.smile * 52))
+            .e("TR", null, 4)
+              .n(marko_node8)
+              .e("TD", null, 2)
+                .t(state.fireExtinguisherPercent)
+                .t("%")
+              .e("TD", null, 1)
+                .t(currency(state.fireExtinguisher))
+              .e("TD", null, 1)
+                .t(currency(state.fireExtinguisher * 52));
 }
 
 marko_template._ = marko_renderer(render, {

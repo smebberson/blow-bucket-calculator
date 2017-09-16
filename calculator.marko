@@ -68,31 +68,57 @@ class {
     </div>
 
     <div class="row calc-blow-bucket">
-        <div class="col"><h2>Blow bucket</h2></div>
+
+        <div class="col">
+
+            <h2>Blow bucket</h2>
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Percentage</th>
+                        <th scope="col">Weekly Allocation</th>
+                        <th scope="col">Yearly Allocation</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Living</td>
+                        <td>${state.livingPercent}%</td>
+                        <td>${currency(state.living)}</td>
+                        <td>${currency(state.living*52)}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Splurge</td>
+                        <td>${state.splurgePercent}%</td>
+                        <td>${currency(state.splurge)}</td>
+                        <td>${currency(state.splurge*52)}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Smile</td>
+                        <td>${state.smilePercent}%</td>
+                        <td>${currency(state.smile)}</td>
+                        <td>${currency(state.smile*52)}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fire extinguisher</td>
+                        <td>${state.fireExtinguisherPercent}%</td>
+                        <td>${currency(state.fireExtinguisher)}</td>
+                        <td>${currency(state.fireExtinguisher*52)}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
     </div>
 
-    <div class="row calc-result">
-        <div class="col">Living</div>
-        <div class="col">${state.livingPercent}%</div>
-        <div class="col">${currency(state.living)}</div>
-    </div>
-
-    <div class="row calc-result">
-        <div class="col">Splurge</div>
-        <div class="col">${state.splurgePercent}%</div>
-        <div class="col">${currency(state.splurge)}</div>
-    </div>
-
-    <div class="row calc-result">
-        <div class="col">Smile</div>
-        <div class="col">${state.smilePercent}%</div>
-        <div class="col">${currency(state.smile)}</div>
-    </div>
-
-    <div class="row calc-result">
-        <div class="col">Fire extinguisher</div>
-        <div class="col">${state.fireExtinguisherPercent}%</div>
-        <div class="col">${currency(state.fireExtinguisher)}</div>
-    </div>
 
 </div>

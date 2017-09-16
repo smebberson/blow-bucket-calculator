@@ -1,3 +1,12 @@
+static var currency = function (amount) {
+
+    return amount.toLocaleString('en-AU', {
+        currency: 'AUD',
+        style: 'currency',
+    });
+
+};
+
 class {
 
     onCreate () {
@@ -40,48 +49,50 @@ class {
 }
 
 <div class="container">
-    <div class="row calc-income">
-        <div class="col"><h2>Income</h2></div>
-        <div class="col">
 
-            <div class="form-group">
+    <div class="row calc-income">
+
+        <div class="col-xs-10 col-sm-6">
+            <h2>Income</h2>
+            <label class="h5 income-help" for="income">Enter your weekly income, after tax.</label>
+        </div>
+        <div class="col-xs-2 col-sm-6">
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon dollars">$</span>
                 <input type="number" class="form-control" id="income" placeholder="1000" value=state.income on-change('onIncomeChange')>
-                <small id="incomeHelp" class="form-text text-muted">Enter your weekly income, after tax</small>
+                <span class="input-group-addon cents">.00</span>
             </div>
 
         </div>
-        <div class="col"></div>
     </div>
-</div>
 
-<div class="container">
-
-    <div class="row">
+    <div class="row calc-blow-bucket">
         <div class="col"><h2>Blow bucket</h2></div>
     </div>
 
-    <div class="row">
+    <div class="row calc-result">
         <div class="col">Living</div>
         <div class="col">${state.livingPercent}%</div>
-        <div class="col">${state.living}</div>
+        <div class="col">${currency(state.living)}</div>
     </div>
 
-    <div class="row">
+    <div class="row calc-result">
         <div class="col">Splurge</div>
         <div class="col">${state.splurgePercent}%</div>
-        <div class="col">${state.splurge}</div>
+        <div class="col">${currency(state.splurge)}</div>
     </div>
 
-    <div class="row">
+    <div class="row calc-result">
         <div class="col">Smile</div>
         <div class="col">${state.smilePercent}%</div>
-        <div class="col">${state.smile}</div>
+        <div class="col">${currency(state.smile)}</div>
     </div>
 
-    <div class="row">
+    <div class="row calc-result">
         <div class="col">Fire extinguisher</div>
         <div class="col">${state.fireExtinguisherPercent}%</div>
-        <div class="col">${state.fireExtinguisher}</div>
+        <div class="col">${currency(state.fireExtinguisher)}</div>
     </div>
 
 </div>

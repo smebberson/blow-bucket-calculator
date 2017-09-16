@@ -5,6 +5,27 @@
 
 }
 
-.calc-income {
+.form-control#income {
+    text-align: right;
+}
+
+.row.calc-income {
     margin-top: 2rem;
+}
+
+.row.calc-blow-bucket {
+    margin-top: 2rem;
+}
+
+.row.calc-result {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #DDD;
+}
+.dollars, .cents {
+    color: #999;
+}
+
+.income-help {
+    letter-spacing: 0;
 }

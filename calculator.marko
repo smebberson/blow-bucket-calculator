@@ -1,25 +1,51 @@
 class {
 
     onCreate () {
-        this.state = {
-            income: 1000,
-        };
+
+        this.state = this.calculateState(1000);
+
     }
 
-    increment () {
-        this.state.count++;
+    onIncomeChange (evt, el) {
+
+        this.state = this.calculateState(evt.target.value);
+
+    }
+
+    calculateState (income) {
+
+        var defaults = this.calculatorDefaults();
+
+        return Object.assign(defaults, {
+            income: income,
+            living: income*defaults.livingPercent/100,
+            splurge: income*defaults.splurgePercent/100,
+            smile: income*defaults.smilePercent/100,
+            fireExtinguisher: income*defaults.fireExtinguisherPercent/100,
+        });
+
+    }
+
+    calculatorDefaults () {
+
+        return {
+            livingPercent: 60,
+            splurgePercent: 10,
+            smilePercent: 10,
+            fireExtinguisherPercent: 20,
+        };
+
     }
 
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col">Income</div>
+    <div class="row calc-income">
+        <div class="col"><h2>Income</h2></div>
         <div class="col">
 
             <div class="form-group">
-                <label for="income">Income</label>
-                <input type="number" class="form-control" id="income" placeholder="1000">
+                <input type="number" class="form-control" id="income" placeholder="1000" value=state.income on-change('onIncomeChange')>
                 <small id="incomeHelp" class="form-text text-muted">Enter your weekly income, after tax</small>
             </div>
 
@@ -36,11 +62,26 @@ class {
 
     <div class="row">
         <div class="col">Living</div>
-        <div class="col">60%</div>
-        <div class="col">${state.income}</div>
+        <div class="col">${state.livingPercent}%</div>
+        <div class="col">${state.living}</div>
+    </div>
+
+    <div class="row">
+        <div class="col">Splurge</div>
+        <div class="col">${state.splurgePercent}%</div>
+        <div class="col">${state.splurge}</div>
+    </div>
+
+    <div class="row">
+        <div class="col">Smile</div>
+        <div class="col">${state.smilePercent}%</div>
+        <div class="col">${state.smile}</div>
+    </div>
+
+    <div class="row">
+        <div class="col">Fire extinguisher</div>
+        <div class="col">${state.fireExtinguisherPercent}%</div>
+        <div class="col">${state.fireExtinguisher}</div>
     </div>
 
 </div>
-
-<p>The current count is ${state.count}.</p>
-<button on-click('increment')>Increment</button>

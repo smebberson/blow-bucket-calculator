@@ -1,6 +1,9 @@
-.jumbotron-banner {
 
-    color: white;
-    background: #4278B8 url('./dist/bg.png') center center !important;
+// Set our own defaults.
+@import './variables.scss';
 
-}
+// Use material by Daemonite.
+@import '../../node_modules/daemonite-material/assets/sass/material.scss';
+
+// The application styles.
+@import './calculator.scss';

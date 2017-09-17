@@ -1,5 +1,7 @@
 static var currency = function (amount) {
 
+    amount = Number(amount);
+
     return amount.toLocaleString('en-AU', {
         currency: 'AUD',
         style: 'currency',
@@ -39,7 +41,7 @@ class {
 
         var defaults = this.calculatorDefaults();
 
-        return Object.assign(defaults, {
+        Object.assign(defaults, {
             income: income,
             living: income*defaults.livingPercent/100,
             splurge: income*defaults.splurgePercent/100,
@@ -50,6 +52,12 @@ class {
             smileCustom: income*defaults.smilePercentCustom/100,
             fireExtinguisherCustom: income*defaults.fireExtinguisherPercentCustom/100,
         });
+
+        defaults.incomeCustom = defaults.livingCustom + defaults.smileCustom + defaults.splurgeCustom + defaults.fireExtinguisherCustom;
+
+        defaults.customPercentTotal = Number(defaults.livingPercentCustom) + Number(defaults.smilePercentCustom) + Number(defaults.splurgePercentCustom) + Number(defaults.fireExtinguisherPercentCustom);
+
+        return defaults;
 
     }
 
@@ -78,11 +86,11 @@ class {
 
     <div class="row calc-income">
 
-        <div class="col-xs-10 col-sm-6">
+        <div class="col-xs-10 col-sm-7">
             <h2>Income</h2>
             <label class="h5 income-help" for="income">Enter your weekly income, after tax.</label>
         </div>
-        <div class="col-xs-2 col-sm-6">
+        <div class="col-xs-2 col-sm-5">
 
             <div class="input-group input-group-lg">
                 <span class="input-group-addon dollars">$</span>
@@ -102,19 +110,23 @@ class {
                 <div class="r-table-head">
                     <div class="r-table-row">
                         <div class="r-table-td">Category</div>
-                        <div class="r-table-td">Barefoot percentage</div>
+                        <div class="r-table-td">Percentage</div>
                         <div class="r-table-td">Weekly allocation</div>
                         <div class="r-table-td">Yearly allocation</div>
-                        <div class="r-table-td">Your percentage</div>
-                        <div class="r-table-td">Your weekly allocation</div>
                     </div>
                 </div>
 
+                <!-- Living -->
+
                 <div class="r-table-row">
                     <div class="r-table-td">Living</div>
-                    <div class="r-table-td"><span>${state.livingPercent}%</span></div>
+                    <div class="r-table-td"><span>${state.livingPercent} %</span></div>
                     <div class="r-table-td"><span>${currency(state.living)}</span></div>
                     <div class="r-table-td"><span>${currency(state.living*52)}</span></div>
+                </div>
+
+                <div class="r-table-row what-if">
+                    <div class="r-table-td">&nbsp;</div>
                     <div class="r-table-td">
                         <div class="input-group">
                             <input type="number" class="form-control text-right your-percentage" value=state.livingPercentCustom on-change('onYourPercentChange', 'living')>
@@ -122,57 +134,88 @@ class {
                         </div>
                     </div>
                     <div class="r-table-td"><span>${currency(state.livingCustom)}</span></div>
+                    <div class="r-table-td"><span>${currency(state.livingCustom*52)}</span></div>
                 </div>
+
+                <!-- Splurge -->
 
                 <div class="r-table-row">
                     <div class="r-table-td">Splurge</div>
-                    <div class="r-table-td"><span>${state.splurgePercent}%</span></div>
+                    <div class="r-table-td"><span>${state.splurgePercent} %</span></div>
                     <div class="r-table-td"><span>${currency(state.splurge)}</span></div>
                     <div class="r-table-td"><span>${currency(state.splurge*52)}</span></div>
+                </div>
+
+                <div class="r-table-row what-if">
+                    <div class="r-table-td">&nbsp;</div>
                     <div class="r-table-td">
                         <div class="input-group">
-                            <input type="number" class="form-control text-right your-percentage" value=state.splurgePercentCustom>
+                            <input type="number" class="form-control text-right your-percentage" value=state.splurgePercentCustom on-change('onYourPercentChange', 'splurge')>
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
                     <div class="r-table-td"><span>${currency(state.splurgeCustom)}</span></div>
+                    <div class="r-table-td"><span>${currency(state.splurgeCustom*52)}</span></div>
                 </div>
+
+                <!-- Smile -->
 
                 <div class="r-table-row">
                     <div class="r-table-td">Smile</div>
-                    <div class="r-table-td"><span>${state.smilePercent}%</span></div>
+                    <div class="r-table-td"><span>${state.smilePercent} %</span></div>
                     <div class="r-table-td"><span>${currency(state.smile)}</span></div>
                     <div class="r-table-td"><span>${currency(state.smile*52)}</span></div>
+                </div>
+
+                <div class="r-table-row what-if">
+                    <div class="r-table-td">&nbsp;</div>
                     <div class="r-table-td">
                         <div class="input-group">
-                            <input type="number" class="form-control text-right your-percentage" value=state.smilePercentCustom>
+                            <input type="number" class="form-control text-right your-percentage" value=state.smilePercentCustom on-change('onYourPercentChange', 'smile')>
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
                     <div class="r-table-td"><span>${currency(state.smileCustom)}</span></div>
+                    <div class="r-table-td"><span>${currency(state.smileCustom*52)}</span></div>
                 </div>
+
+                <!-- Fire extinguisher -->
 
                 <div class="r-table-row">
                     <div class="r-table-td">Fire extinguisher</div>
-                    <div class="r-table-td"><span>${state.fireExtinguisherPercent}%</span></div>
+                    <div class="r-table-td"><span>${state.fireExtinguisherPercent} %</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher)}</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher*52)}</span></div>
+                </div>
+
+                <div class="r-table-row what-if">
+                    <div class="r-table-td">&nbsp;</div>
                     <div class="r-table-td">
                         <div class="input-group">
-                            <input type="number" class="form-control text-right your-percentage" value=state.fireExtinguisherPercentCustom>
+                            <input type="number" class="form-control text-right your-percentage" value=state.fireExtinguisherPercentCustom on-change('onYourPercentChange', 'fireExtinguisher')>
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisherCustom)}</span></div>
+                    <div class="r-table-td"><span>${currency(state.fireExtinguisherCustom*52)}</span></div>
                 </div>
 
                 <div class="r-table-foot">
+
                     <div class="r-table-row">
-                        <div class="r-table-td">&nbsp;</div>
-                        <div class="r-table-td">&nbsp;</div>
-                        <div class="r-table-td">&nbsp;</div>
+                        <div class="r-table-td">Barefoot total</div>
+                        <div class="r-table-td">100 %</div>
+                        <div class="r-table-td"><span>${currency(state.income)}</span></div>
                         <div class="r-table-td"><span>${currency(state.income*52)}</span></div>
                     </div>
+
+                    <div class="r-table-row what-if">
+                        <div class="r-table-td">What if total</div>
+                        <div class="r-table-td">${state.customPercentTotal} %</div>
+                        <div class="r-table-td">${currency(state.incomeCustom)}</div>
+                        <div class="r-table-td"><span>${currency(state.incomeCustom*52)}</span></div>
+                    </div>
+
                 </div>
 
             </div>

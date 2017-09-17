@@ -43,6 +43,14 @@
     font-size: $font-size-base;
 }
 
+.your-percentage {
+    width: 40px !important;
+}
+
+.input-group-addon, .input-group-lg > .input-group-addon {
+    min-width: auto;
+}
+
 // Responsive table
 @include media-breakpoint-up(sm) {
 
@@ -73,11 +81,11 @@
 
         display: table-row;
 
-        .r-table-td:nth-child(2) {
+        .r-table-td:nth-child(2), .r-table-td:nth-child(5) {
             text-align: center;
         }
 
-        .r-table-td:nth-child(3), .r-table-td:nth-child(4) {
+        .r-table-td:nth-child(3), .r-table-td:nth-child(4), .r-table-td:nth-child(6) {
             text-align: right;
         }
 

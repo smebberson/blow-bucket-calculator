@@ -25,6 +25,16 @@ class {
 
     }
 
+    onYourPercentChange (type, evt, el) {
+
+        var typeValue = evt.target.value;
+
+        Cookie.set(type + 'PercentCustom', typeValue);
+
+        this.state = this.calculateState(this.state.income);
+
+    }
+
     calculateState (income) {
 
         var defaults = this.calculatorDefaults();
@@ -35,18 +45,30 @@ class {
             splurge: income*defaults.splurgePercent/100,
             smile: income*defaults.smilePercent/100,
             fireExtinguisher: income*defaults.fireExtinguisherPercent/100,
+            livingCustom: income*defaults.livingPercentCustom/100,
+            splurgeCustom: income*defaults.splurgePercentCustom/100,
+            smileCustom: income*defaults.smilePercentCustom/100,
+            fireExtinguisherCustom: income*defaults.fireExtinguisherPercentCustom/100,
         });
 
     }
 
     calculatorDefaults () {
 
-        return {
+        var defaults = {
             livingPercent: 60,
             splurgePercent: 10,
             smilePercent: 10,
             fireExtinguisherPercent: 20,
         };
+
+        // Add in the custom ones.
+        defaults.livingPercentCustom = Cookie.get('livingPercentCustom') || defaults.livingPercent;
+        defaults.splurgePercentCustom = Cookie.get('splurgePercentCustom') || defaults.splurgePercent;
+        defaults.smilePercentCustom = Cookie.get('smilePercentCustom') || defaults.smilePercent;
+        defaults.fireExtinguisherPercentCustom = Cookie.get('fireExtinguisherPercentCustom') || defaults.fireExtinguisherPercent;
+
+        return defaults;
 
     }
 
@@ -80,9 +102,11 @@ class {
                 <div class="r-table-head">
                     <div class="r-table-row">
                         <div class="r-table-td">Category</div>
-                        <div class="r-table-td">Percentage</div>
-                        <div class="r-table-td">Weekly Allocation</div>
-                        <div class="r-table-td">Yearly Allocation</div>
+                        <div class="r-table-td">Barefoot percentage</div>
+                        <div class="r-table-td">Weekly allocation</div>
+                        <div class="r-table-td">Yearly allocation</div>
+                        <div class="r-table-td">Your percentage</div>
+                        <div class="r-table-td">Your weekly allocation</div>
                     </div>
                 </div>
 
@@ -91,6 +115,13 @@ class {
                     <div class="r-table-td"><span>${state.livingPercent}%</span></div>
                     <div class="r-table-td"><span>${currency(state.living)}</span></div>
                     <div class="r-table-td"><span>${currency(state.living*52)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <input type="number" class="form-control text-right your-percentage" value=state.livingPercentCustom on-change('onYourPercentChange', 'living')>
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </div>
+                    <div class="r-table-td"><span>${currency(state.livingCustom)}</span></div>
                 </div>
 
                 <div class="r-table-row">
@@ -98,6 +129,13 @@ class {
                     <div class="r-table-td"><span>${state.splurgePercent}%</span></div>
                     <div class="r-table-td"><span>${currency(state.splurge)}</span></div>
                     <div class="r-table-td"><span>${currency(state.splurge*52)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <input type="number" class="form-control text-right your-percentage" value=state.splurgePercentCustom>
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </div>
+                    <div class="r-table-td"><span>${currency(state.splurgeCustom)}</span></div>
                 </div>
 
                 <div class="r-table-row">
@@ -105,6 +143,13 @@ class {
                     <div class="r-table-td"><span>${state.smilePercent}%</span></div>
                     <div class="r-table-td"><span>${currency(state.smile)}</span></div>
                     <div class="r-table-td"><span>${currency(state.smile*52)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <input type="number" class="form-control text-right your-percentage" value=state.smilePercentCustom>
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </div>
+                    <div class="r-table-td"><span>${currency(state.smileCustom)}</span></div>
                 </div>
 
                 <div class="r-table-row">
@@ -112,6 +157,13 @@ class {
                     <div class="r-table-td"><span>${state.fireExtinguisherPercent}%</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher)}</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher*52)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <input type="number" class="form-control text-right your-percentage" value=state.fireExtinguisherPercentCustom>
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </div>
+                    <div class="r-table-td"><span>${currency(state.fireExtinguisherCustom)}</span></div>
                 </div>
 
                 <div class="r-table-foot">

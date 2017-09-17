@@ -11,7 +11,7 @@ static var currency = function (amount) {
 
 static var round = function (amount, decimals) {
 
-    if (!decimals) {
+    if (decimals === undefined || decimals === null) {
         decimals = 2;
     }
 
@@ -273,8 +273,8 @@ class {
 
                     <div class="r-table-row what-if">
                         <div class="r-table-td">What if total</div>
-                        <div class={ 'r-table-td': true, error: round(state.customPercentTotal, 0) != 100 }>${round(state.customPercentTotal)} %</div>
-                        <div class={ 'r-table-td': true, error: round(state.incomeCustom, 0) != round(state.income, 0) }>${currency(state.incomeCustom)}</div>
+                        <div class={ 'r-table-td': true, error: round(state.customPercentTotal, 0) != 100 }>${round(state.customPercentTotal, 0)} %</div>
+                        <div class={ 'r-table-td': true, error: round(state.incomeCustom, 0) != round(state.income, 0) }>${currency(round(state.incomeCustom, 0))}</div>
                         <div class="r-table-td"><span>${currency(state.incomeCustom*52)}</span></div>
                     </div>
 

@@ -895,7 +895,7 @@ var marko_template = module.exports = __webpack_require__(29).t(),
       },
     marko_createElement = marko_helpers.e,
     marko_const = marko_helpers.const,
-    marko_const_nextId = marko_const("a851f0"),
+    marko_const_nextId = marko_const("9549d4"),
     marko_node0 = marko_createElement("DIV", {
         "class": "col-xs-10 col-sm-7"
       }, 2, 0, {
@@ -1222,7 +1222,7 @@ var currency = function (amount) {
 
 var round = function (amount, decimals) {
 
-    if (!decimals) {
+    if (decimals === undefined || decimals === null) {
         decimals = 2;
     }
 
@@ -1438,7 +1438,7 @@ function render(input, out, __component, component, state) {
                       error: round(state.customPercentTotal, 0) != 100
                     })
                 }, 2, 4)
-                .t(round(state.customPercentTotal))
+                .t(round(state.customPercentTotal, 0))
                 .t(" %")
               .e("DIV", {
                   "class": marko_classAttr({
@@ -1446,7 +1446,7 @@ function render(input, out, __component, component, state) {
                       error: round(state.incomeCustom, 0) != round(state.income, 0)
                     })
                 }, 1, 4)
-                .t(currency(state.incomeCustom))
+                .t(currency(round(state.incomeCustom, 0)))
               .e("DIV", marko_attrs51, 1)
                 .e("SPAN", null, 1)
                   .t(currency(state.incomeCustom * 52));

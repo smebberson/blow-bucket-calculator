@@ -28,7 +28,7 @@
 .row.calc-result {
     margin-top: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid $color-grey;
 }
 .dollars, .cents {
     color: #999;
@@ -40,4 +40,47 @@
 
 .table tbody td, .table tfoot td {
     font-size: $font-size-base;
+}
+
+// Responsive table
+.r-table {
+
+    width: 100%;
+    display: table;
+
+    & > .r-table-row > .r-table-td, & > .r-table-head > .r-table-row > .r-table-td {
+        border-bottom: 1px solid $color-grey;
+    }
+
+}
+
+.r-table-head {
+
+    display: table-header-group;
+
+    .r-table-td {
+        font-size: .75rem;
+        text-transform: uppercase;
+        color: $color-dark-grey;
+    }
+
+}
+
+.r-table-row {
+    display: table-row;
+}
+
+.r-table-td {
+    display: table-cell;
+    padding: 1rem;
+}
+
+.r-table-foot {
+
+    display: table-footer-group;
+
+    .r-table-td {
+        color: $color-dark-grey;
+    }
+
 }

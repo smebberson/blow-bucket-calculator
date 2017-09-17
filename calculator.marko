@@ -75,59 +75,58 @@ class {
 
         <div class="col">
 
-            <table class="table">
+            <div class="r-table">
 
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-left">Category</th>
-                        <th scope="col" class="text-center">Percentage</th>
-                        <th scope="col" class="text-right">Weekly Allocation</th>
-                        <th scope="col" class="text-right">Yearly Allocation</th>
-                    </tr>
-                </thead>
+                <div class="r-table-head">
+                    <div class="r-table-row">
+                        <div class="r-table-td text-left">Category</div>
+                        <div class="r-table-td text-center">Percentage</div>
+                        <div class="r-table-td text-right">Weekly Allocation</div>
+                        <div class="r-table-td text-right">Yearly Allocation</div>
+                    </div>
+                </div>
 
-                <tbody>
-                    <tr>
-                        <td>Living</td>
-                        <td class="text-center">${state.livingPercent}%</td>
-                        <td class="text-right">${currency(state.living)}</td>
-                        <td class="text-right">${currency(state.living*52)}</td>
-                    </tr>
+                <div class="r-table-row">
+                    <div class="r-table-td ">Living</div>
+                    <div class="r-table-td text-center">${state.livingPercent}%</div>
+                    <div class="r-table-td text-right">${currency(state.living)}</div>
+                    <div class="r-table-td text-right">${currency(state.living*52)}</div>
+                </div>
 
-                    <tr>
-                        <td>Splurge</td>
-                        <td class="text-center">${state.splurgePercent}%</td>
-                        <td class="text-right">${currency(state.splurge)}</td>
-                        <td class="text-right">${currency(state.splurge*52)}</td>
-                    </tr>
+                <div class="r-table-row">
+                    <div class="r-table-td ">Splurge</div>
+                    <div class="r-table-td text-center">${state.splurgePercent}%</div>
+                    <div class="r-table-td text-right">${currency(state.splurge)}</div>
+                    <div class="r-table-td text-right">${currency(state.splurge*52)}</div>
+                </div>
 
-                    <tr>
-                        <td>Smile</td>
-                        <td class="text-center">${state.smilePercent}%</td>
-                        <td class="text-right">${currency(state.smile)}</td>
-                        <td class="text-right">${currency(state.smile*52)}</td>
-                    </tr>
+                <div class="r-table-row">
+                    <div class="r-table-td ">Smile</div>
+                    <div class="r-table-td text-center">${state.smilePercent}%</div>
+                    <div class="r-table-td text-right">${currency(state.smile)}</div>
+                    <div class="r-table-td text-right">${currency(state.smile*52)}</div>
+                </div>
 
-                    <tr>
-                        <td>Fire extinguisher</td>
-                        <td class="text-center">${state.fireExtinguisherPercent}%</td>
-                        <td class="text-right">${currency(state.fireExtinguisher)}</td>
-                        <td class="text-right">${currency(state.fireExtinguisher*52)}</td>
-                    </tr>
-                </tbody>
+                <div class="r-table-row">
+                    <div class="r-table-td ">Fire extinguisher</div>
+                    <div class="r-table-td text-center">${state.fireExtinguisherPercent}%</div>
+                    <div class="r-table-td text-right">${currency(state.fireExtinguisher)}</div>
+                    <div class="r-table-td text-right">${currency(state.fireExtinguisher*52)}</div>
+                </div>
 
-                <tfoot>
-                    <tr>
-                        <td colspan=3>&nbsp;</td>
-                        <td class="text-right">${currency(state.income*52)}</td>
-                    </tr>
-                </tfoot>
+                <div class="r-table-foot">
+                    <div class="r-table-row">
+                        <div class="r-table-td">&nbsp;</div>
+                        <div class="r-table-td">&nbsp;</div>
+                        <div class="r-table-td">&nbsp;</div>
+                        <div class="r-table-td text-right">${currency(state.income*52)}</div>
+                    </div>
+                </div>
 
-            </table>
+            </div>
 
         </div>
 
     </div>
-
 
 </div>

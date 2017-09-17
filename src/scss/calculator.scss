@@ -56,7 +56,7 @@
 }
 
 // Responsive table
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-up(ms) {
 
     .r-table {
 
@@ -93,12 +93,17 @@
 
         display: table-row;
 
-        .r-table-td:nth-child(5) {
-            text-align: center;
+        .r-table-td:nth-child(2), .r-table-td:nth-child(3), .r-table-td:nth-child(4) {
+            text-align: right;
+            color: $color-body-3;
         }
 
-        .r-table-td:nth-child(2), .r-table-td:nth-child(3), .r-table-td:nth-child(4), .r-table-td:nth-child(6) {
-            text-align: right;
+    }
+
+    .r-table-row.what-if {
+
+        .r-table-td:nth-child(2), .r-table-td:nth-child(3), .r-table-td:nth-child(4) {
+            color: $color-body-1;
         }
 
     }
@@ -112,8 +117,17 @@
 
         display: table-footer-group;
 
-        .r-table-td {
-            color: $color-body-3;
+        & > .r-table-row:nth-child(1) > .r-table-td {
+            border-top: 1px solid $color-border;
+        }
+
+        .r-table-td:nth-child(1) {
+            color: $color-body-1;
+        }
+
+        .r-table-row .r-table-td {
+            color: $color-body-1;
+            font-weight: bold;
         }
 
         .r-table-row.what-if > .r-table-td {
@@ -124,83 +138,6 @@
             background-color: $white;
         }
 
-    }
-
-}
-
-@include media-breakpoint-down(xs) {
-
-    .r-table-head {
-        display: none;
-    }
-
-    .r-table-row {
-
-        margin-bottom: 1.1rem;
-
-        .r-table-td {
-            margin-bottom: .5rem;
-        }
-
-        .r-table-td:nth-child(1) {
-            font-size: 1.6rem;
-        }
-
-        .r-table-td {
-
-            display: flex;
-
-            // Descriptions.
-            &:nth-child(2)::before, &:nth-child(3)::before, &:nth-child(4)::before {
-                flex: 1;
-                text-align: left;
-                margin-left: .5rem;
-                color: $color-body-3;
-                text-transform: uppercase;
-                font-size: .8rem;
-            }
-
-            // Values.
-            &:nth-child(2), &:nth-child(3), &:nth-child(4) {
-                text-align: right;
-                width: 100%;
-                color: $color-body-2;
-            }
-
-        }
-
-        .r-table-td:nth-child(2)::before {
-            content: 'Percentage: ';
-        }
-
-        .r-table-td:nth-child(3)::before {
-            content: 'Weekly allocation: ';
-        }
-
-        .r-table-td:nth-child(4)::before {
-            content: 'Yearly allocation: ';
-        }
-
-    }
-
-    .r-table-foot > .r-table-row > .r-table-td {
-        font-size: 1.6rem;
-    }
-
-    .r-table-foot > .r-table-row > .r-table-td {
-
-        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-            display: none;
-        }
-
-    }
-
-    .r-table-foot > .r-table-row > .r-table-td:nth-child(4)::before {
-        content: 'Yearly total: ';
-        color: $color-body-1;
-        font-size: 1.6rem;
-        text-transform: none;
-        margin-left: 0px;
     }
 
 }

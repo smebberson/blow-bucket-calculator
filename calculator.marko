@@ -5,7 +5,7 @@ static var currency = function (amount) {
     return amount.toLocaleString('en-AU', {
         currency: 'AUD',
         style: 'currency',
-    });
+    }).replace(/\D\d\d$/, '');
 
 };
 
@@ -110,9 +110,9 @@ class {
                 <div class="r-table-head">
                     <div class="r-table-row">
                         <div class="r-table-td">Category</div>
-                        <div class="r-table-td">Percentage</div>
-                        <div class="r-table-td">Weekly allocation</div>
-                        <div class="r-table-td">Yearly allocation</div>
+                        <div class="r-table-td">%</div>
+                        <div class="r-table-td">Weekly</div>
+                        <div class="r-table-td">Yearly</div>
                     </div>
                 </div>
 
@@ -182,7 +182,7 @@ class {
                 <!-- Fire extinguisher -->
 
                 <div class="r-table-row">
-                    <div class="r-table-td">Fire extinguisher</div>
+                    <div class="r-table-td">Fire Ex.</div>
                     <div class="r-table-td"><span>${state.fireExtinguisherPercent} %</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher)}</span></div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisher*52)}</span></div>

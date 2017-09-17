@@ -110,7 +110,7 @@ class {
                 <div class="r-table-head">
                     <div class="r-table-row">
                         <div class="r-table-td">Category</div>
-                        <div class="r-table-td">%</div>
+                        <div class="r-table-td">Precent</div>
                         <div class="r-table-td">Weekly</div>
                         <div class="r-table-td">Yearly</div>
                     </div>
@@ -211,7 +211,7 @@ class {
 
                     <div class="r-table-row what-if">
                         <div class="r-table-td">What if total</div>
-                        <div class="r-table-td">${state.customPercentTotal} %</div>
+                        <div class={ 'r-table-td': true, error: state.customPercentTotal != 100 }>${state.customPercentTotal} %</div>
                         <div class="r-table-td">${currency(state.incomeCustom)}</div>
                         <div class="r-table-td"><span>${currency(state.incomeCustom*52)}</span></div>
                     </div>

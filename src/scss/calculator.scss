@@ -55,6 +55,10 @@
     margin-left: .2rem;
 }
 
+.r-table-td.error {
+    color: red !important;
+}
+
 // Responsive table
 @include media-breakpoint-up(ms) {
 

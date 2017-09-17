@@ -9,6 +9,16 @@ static var currency = function (amount) {
 
 };
 
+static var round = function (amount, decimals) {
+
+    if (!decimals) {
+        decimals = 2;
+    }
+
+    return Number(amount).toFixed(decimals);
+
+}
+
 class {
 
     onCreate () {
@@ -31,7 +41,31 @@ class {
 
         var typeValue = evt.target.value;
 
+        // Set the custom percent.
         Cookie.set(type + 'PercentCustom', typeValue);
+
+        // Calculate the custom value.
+        Cookie.set(type + 'Custom', this.state.income*typeValue/100);
+
+        // Store the fact they last set the percent.
+        Cookie.set(type + 'Control', 'percent');
+
+        this.state = this.calculateState(this.state.income);
+
+    }
+
+    onYourWeeklyChange (type, evt, el) {
+
+        var typeValue = evt.target.value;
+
+        // Set the custom value.
+        Cookie.set(type + 'Custom', typeValue);
+
+        // Calculate the custom percentage.
+        Cookie.set(type + 'PercentCustom', round(typeValue/this.state.income*100));
+
+        // Store the fact that last set the weekly amount.
+        Cookie.set(type + 'Control', 'weekly');
 
         this.state = this.calculateState(this.state.income);
 
@@ -47,13 +81,21 @@ class {
             splurge: income*defaults.splurgePercent/100,
             smile: income*defaults.smilePercent/100,
             fireExtinguisher: income*defaults.fireExtinguisherPercent/100,
-            livingCustom: income*defaults.livingPercentCustom/100,
-            splurgeCustom: income*defaults.splurgePercentCustom/100,
-            smileCustom: income*defaults.smilePercentCustom/100,
-            fireExtinguisherCustom: income*defaults.fireExtinguisherPercentCustom/100,
         });
 
-        defaults.incomeCustom = defaults.livingCustom + defaults.smileCustom + defaults.splurgeCustom + defaults.fireExtinguisherCustom;
+        // Depending on which value was entered last (i.e. percent or amount).
+        // We want to calculate the weekly amount differently.
+        // If it was the percent, we want to calculate it.
+        // If it was the weekly, we just want to use the value.
+        ['living', 'splurge', 'smile', 'fireExtinguisher'].forEach(function (type) {
+
+            var typeControl = Cookie.get(type + 'Control');
+
+            defaults[type + 'Custom'] = (typeControl === 'percent' || !typeControl) ? round(income*defaults[type + 'PercentCustom']/100) : Cookie.get(type + 'Custom');
+
+        });
+
+        defaults.incomeCustom = Number(defaults.livingCustom) + Number(defaults.smileCustom) + Number(defaults.splurgeCustom) + Number(defaults.fireExtinguisherCustom);
 
         defaults.customPercentTotal = Number(defaults.livingPercentCustom) + Number(defaults.smilePercentCustom) + Number(defaults.splurgePercentCustom) + Number(defaults.fireExtinguisherPercentCustom);
 
@@ -133,7 +175,12 @@ class {
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
-                    <div class="r-table-td"><span>${currency(state.livingCustom)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control text-right your-weekly" value=state.livingCustom on-change('onYourWeeklyChange', 'living')>
+                        </div>
+                    </div>
                     <div class="r-table-td"><span>${currency(state.livingCustom*52)}</span></div>
                 </div>
 
@@ -154,7 +201,12 @@ class {
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
-                    <div class="r-table-td"><span>${currency(state.splurgeCustom)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control text-right your-weekly" value=state.splurgeCustom on-change('onYourWeeklyChange', 'splurge')>
+                        </div>
+                    </div>
                     <div class="r-table-td"><span>${currency(state.splurgeCustom*52)}</span></div>
                 </div>
 
@@ -175,7 +227,12 @@ class {
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
-                    <div class="r-table-td"><span>${currency(state.smileCustom)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control text-right your-weekly" value=state.smileCustom on-change('onYourWeeklyChange', 'smile')>
+                        </div>
+                    </div>
                     <div class="r-table-td"><span>${currency(state.smileCustom*52)}</span></div>
                 </div>
 
@@ -196,7 +253,12 @@ class {
                             <div class="input-group-addon">%</div>
                         </div>
                     </div>
-                    <div class="r-table-td"><span>${currency(state.fireExtinguisherCustom)}</span></div>
+                    <div class="r-table-td">
+                        <div class="input-group">
+                            <div class="input-group-addon">$</div>
+                            <input type="number" class="form-control text-right your-weekly" value=state.fireExtinguisherCustom on-change('onYourWeeklyChange', 'fireExtinguisher')>
+                        </div>
+                    </div>
                     <div class="r-table-td"><span>${currency(state.fireExtinguisherCustom*52)}</span></div>
                 </div>
 
@@ -211,8 +273,8 @@ class {
 
                     <div class="r-table-row what-if">
                         <div class="r-table-td">What if total</div>
-                        <div class={ 'r-table-td': true, error: state.customPercentTotal != 100 }>${state.customPercentTotal} %</div>
-                        <div class="r-table-td">${currency(state.incomeCustom)}</div>
+                        <div class={ 'r-table-td': true, error: round(state.customPercentTotal, 0) != 100 }>${round(state.customPercentTotal)} %</div>
+                        <div class={ 'r-table-td': true, error: round(state.incomeCustom, 0) != round(state.income, 0) }>${currency(state.incomeCustom)}</div>
                         <div class="r-table-td"><span>${currency(state.incomeCustom*52)}</span></div>
                     </div>
 

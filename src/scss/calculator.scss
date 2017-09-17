@@ -44,7 +44,11 @@
 }
 
 .your-percentage {
-    width: 40px !important;
+    width: 30px !important;
+}
+
+.your-weekly {
+    width: 50px !important;
 }
 
 .input-group-addon, .input-group-lg > .input-group-addon {
@@ -52,6 +56,10 @@
 }
 
 .form-control + .input-group-addon {
+    margin-left: .2rem;
+}
+
+.input-group-addon + .form-control {
     margin-left: .2rem;
 }
 
